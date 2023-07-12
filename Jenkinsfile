@@ -7,7 +7,7 @@ pipeline {
       }
     }
 
-    stage('Installind dependencies') {
+    stage('Installing dependencies') {
       steps {
         sh 'cd app && pip3 install -r requirements.txt'
       }
