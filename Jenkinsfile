@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Installind dependencies') {
+      steps {
+        sh 'cd app && pip3 install -r requirements.txt'
+      }
+    }
+
   }
 }
