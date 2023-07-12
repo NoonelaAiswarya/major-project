@@ -13,5 +13,11 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        sh 'docker build -t aishyadav/project:latest /var/lib/jenkins/workspace/major-project_main/app'
+      }
+    }
+
   }
 }
