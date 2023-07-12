@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  flask-app-1:
+    container_name: flask-app-1
+    build: app
+    restart: always
+    ports:
+      - '5500:5500'
+    volumes:
+      - ./app:/app
+
+volumes:
+  app:
