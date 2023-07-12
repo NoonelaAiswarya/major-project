@@ -29,5 +29,11 @@ pipeline {
       }
     }
 
+    stage('Push') {
+      steps {
+        sh 'docker push aishyadav/project:latest'
+      }
+    }
+
   }
 }
