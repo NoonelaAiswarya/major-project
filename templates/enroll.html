@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container bg-dark text-white p-3 rounded my-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <h2>Enrollments</h2>
+        </div>
+    </div>
+
+    <div class="container mt-5 p-0">
+        <table class="table table-hover text-center">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th width="10%" scope="col">Enrollment ID</th>
+                    <th width="30%" scope="col">Student name</th>
+                    <th width="10%" scope="col">Age</th>
+                    <th width="10%" scope="col">Gender</th>
+                   <th width="10%" scope="col">Course</th>
+                    <th width="10%" scope="col">Enrolled date</th>
+                    <th width="10%" scope="col">Email</th>
+                    <th width="10%" scope="col">Phone number</th>
+                    <th width="10%" scope="col"> Actions </th>
+
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                {% for enroll in enrollments %}
+                <tr>
+                    <td>{{ enroll[0] }}</td>
+                    <td>{{ enroll[1] }}</td>
+                    <td>{{ enroll[2] }}</td>
+                    <td>{{ enroll[3] }}</td>
+                    <td>{{ enroll[4] }}</td>
+                    <td>{{ enroll[5] }}</td>
+                    <td>{{ enroll[6] }}</td>
+                    <td>{{ enroll[7] }}</td>
+
+                    <td>
+
+                        <form action="/enroll/remove" method="POST">
+			    <input type="hidden" name="enrollment_id" value="{{ enroll[0] }}">
+    			    <button type="submit" class="btn btn-danger">Delete</button>
+			</form>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container mt-3">
+        <a href="/">Go Back</a>
+    </div>
+
+</body>
+
+</html>
